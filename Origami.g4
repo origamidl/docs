@@ -10,15 +10,39 @@ fragment DIGIT:
 fragment LETTER:
   'a'..'z' | 'A'..'Z' ;
 
+WS:
+  [ \t]+ -> channel(HIDDEN) ;
+
+COMMENT:
+  ';' .*? ~[\r\n]* -> skip ;
+
+POINTSYMBOL:
+  '.' ;
+
+LINESYMBOL:
+  '--' ;
+
+REGIONSYMBOL:
+  '#' ;
+
 IDENTIFIER:
   LETTER (LETTER | DIGIT)* ;
 
 POINT:
-  '.' IDENTIFIER ;
+  POINTSYMBOL IDENTIFIER ;
 
 LINE:
-  '--' IDENTIFIER ;
+  LINESYMBOL IDENTIFIER ;
 
 REGION:
-  '#' IDENTIFIER ;
+  REGIONSYMBOL IDENTIFIER ;
+
+/*
+ * Parser Rules
+ */
+pointconstruction:
+  POINTSYMBOL '(' WS? LINE WS LINE WS? ')' ;
+
+lineconstruction:
+  LINESYMBOL '(' WS? POINT WS POINT WS? ')' ;
 
