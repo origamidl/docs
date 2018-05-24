@@ -4,45 +4,175 @@ grammar Origami;
  * Lexer Rules
  */
 
-fragment DIGIT:
-  [0-9] ;
+fragment LETTER
+  : 'a'..'z' | 'A'..'Z'
+  ;
 
-fragment LETTER:
-  'a'..'z' | 'A'..'Z' ;
+fragment DIGIT
+  : [0-9]
+  ;
 
-WS:
-  [ \t]+ -> channel(HIDDEN) ;
+fragment A : 'A' | 'a' ;
+fragment N : 'N' | 'n' ;
+fragment D : 'D' | 'd' ;
+fragment O : 'O' | 'o' ;
+fragment R : 'R' | 'r' ;
 
-COMMENT:
-  ';' .*? ~[\r\n]* -> skip ;
+fragment DIGITWITHOUTZERO
+  : [1-9]
+  ;
 
-POINTSYMBOL:
-  '.' ;
+NUMBER
+  : DIGITWITHOUTZERO DIGIT* 'deg'?
+  ;
 
-LINESYMBOL:
-  '--' ;
+WS
+  : (' ' | [\u000C\t\r\n])+ -> skip
+  ;
 
-REGIONSYMBOL:
-  '#' ;
+COMMENT
+  : ';' .*? ~[\r\n]* -> skip
+  ;
 
-IDENTIFIER:
-  LETTER (LETTER | DIGIT)* ;
+AND
+  : A N D
+  ;
 
-POINT:
-  POINTSYMBOL IDENTIFIER ;
+OR
+  : O R
+  ;
 
-LINE:
-  LINESYMBOL IDENTIFIER ;
+WITHOUT
+  : '\\'
+  ;
 
-REGION:
-  REGIONSYMBOL IDENTIFIER ;
+DIFFERENCE
+  : '<>'
+  ;
+
+POINTSYMBOL
+  : '.'
+  ;
+
+LINESYMBOL
+  : '--'
+  ;
+
+REGIONSYMBOL
+  : '#'
+  ;
+
+IDENTIFIER
+  : LETTER (LETTER | DIGIT)*
+  ;
+
+POINT
+  : POINTSYMBOL IDENTIFIER
+  ;
+
+LINE
+  : LINESYMBOL IDENTIFIER
+  ;
+
+REGION
+  : REGIONSYMBOL IDENTIFIER
+  ;
+
+FOLD
+  : 'fold'
+  ;
+
+UNFOLDMARKER
+  : '@'
+  ;
 
 /*
  * Parser Rules
  */
-pointconstruction:
-  POINTSYMBOL '(' WS? LINE WS LINE WS? ')' ;
+constructor
+  : lineConstructor
+  | pointConstructor
+  | regionConstructor
+  ;
 
-lineconstruction:
-  LINESYMBOL '(' WS? POINT WS POINT WS? ')' ;
+lineConstructor
+  : LINESYMBOL '(' lineConstructorArguments ')'
+  ;
+
+lineConstructorArguments
+  : POINT POINT
+  | POINT LINE NUMBER
+  ;
+
+pointConstructor
+  : POINTSYMBOL '(' pointConstructorArguments ')'
+  ;
+
+pointConstructorArguments
+  : LINE LINE
+  ;
+
+regionConstructor
+  : REGIONSYMBOL '(' regionConstructorArguments ')'
+  ;
+
+regionConstructorArguments
+  : POINT LINE
+  ;
+
+regionCombination
+  : REGION AND REGION
+  | REGION OR REGION
+  | REGION WITHOUT REGION
+  | REGION DIFFERENCE REGION
+  ;
+
+fold
+  : FOLD
+  | UNFOLDMARKER FOLD
+  ;
+
+assignment
+  : POINT ':'
+  | LINE ':'
+  | REGION ':'
+  ;
+
+axiom
+  : axiom1
+  | axiom2
+  | axiom3
+  | axiom4
+  | axiom5
+  | axiom6
+  | axiom7
+  ;
+
+axiom1
+  : fold 'through' POINT 'and' POINT
+  ;
+
+axiom2
+  : fold POINT 'to' POINT
+  ;
+
+axiom3
+  : fold LINE 'to' LINE
+  ;
+
+axiom4
+  : fold LINE 'passing through' POINT
+  ;
+
+axiom5
+  : fold POINT 'to' LINE 'via' POINT
+  ;
+
+axiom6
+  : fold POINT 'to' LINE 'and' POINT 'to' LINE
+  ;
+
+axiom7
+  : fold POINT 'to' LINE 'perpendicular to' LINE
+  ;
 
