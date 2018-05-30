@@ -75,7 +75,7 @@ tokens { INDENT, DEDENT }
   }
 }
 
-var
+variable
   : varprefix varname
   ;
 
@@ -90,12 +90,12 @@ varname
   ;
 
 varassignment
-  : var COLON expression
+  : variable COLON expression
   ;
 
 expression
   : constructor
-  | var
+  | variable
   ;
 
 argument
