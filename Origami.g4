@@ -186,36 +186,31 @@ NEWLINE
     | ( '\r'? '\n' | '\r' | '\f' ) SPACES?
     )
     {
-      /*
-      String newLine = getText().replaceAll("[^\r\n\f]+", "");
-      String spaces = getText().replaceAll("[\r\n\f]+", "");
-      int next = _input.LA(1);
-      if (opened > 0 || next == '\r' || next == '\n' || next == '\f' || next == '#') {
-        skip();
-      }
-      else {
-        emit(commonToken(NEWLINE, newLine));
-        int indent = getIndentationCount(spaces);
-        int previous = indents.isEmpty() ? 0 : indents.peek();
-        if (indent == previous) {
-          skip();
-        }
-        else if (indent > previous) {
-          indents.push(indent);
-          emit(commonToken(OrigamiParser.INDENT, spaces));
-        }
-        else {
-          while (!indents.isEmpty() && indents.peek() > indent) {
-            this.emit(createDedent());
-            indents.pop();
+      let newLine = getText().replacingOccurences(of: "[^\r\n\f]", with: "", options: [.regularExpression])
+      let spaces = getText().replacingOccurences(of: "[\r\n\f]", with: "", options: [.regularExpression])
+      let next = _input.LA(1)
+
+      if opened > 0 || next == "\r" || next == "\n" || next == "\f" || next == ";" {
+        skip()
+      } else {
+        emit(commonToken(NEWLINE, newLine))
+        let indent = getIndentationCount(spaces)
+        let previous = indents.isEmpty ? 0 : indents.first
+        if indent == previous {
+          skip()
+        } else if indent > previous {
+          indents.append(indent)
+          emit(commonToken(OrigamiParser.INDENT, spaces))
+        } else {
+          while !indents.isEmpty && indents.first > indent {
+            this.emit(createDedent())
+            indents.removeLast()
           }
         }
       }
-      */
     }
   ;
 
 fragment SPACES
   : [ \t]+
   ;
-
