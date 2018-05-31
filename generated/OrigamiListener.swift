@@ -5,7 +5,7 @@ import Antlr4
  * This interface defines a complete listener for a parse tree produced by
  * {@link OrigamiParser}.
  */
-public protocol OrigamiListener: ParseTreeListener {
+ protocol OrigamiListener: ParseTreeListener {
 	/**
 	 * Enter a parse tree produced by {@link OrigamiParser#variable}.
 	 - Parameters:

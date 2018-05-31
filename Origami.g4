@@ -2,6 +2,10 @@ grammar Origami;
 
 tokens { INDENT, DEDENT }
 
+options {
+  accessLevel = '';
+}
+
 @lexer::members {
   private var tokens: [Token] = []
   private var indents: [Int] = []
@@ -18,42 +22,43 @@ tokens { INDENT, DEDENT }
       throw ANTLRError.illegalState(msg: "nextToken requires a non-null input stream.")
     }
 
-    if _input.LA(1) == BufferedTokenStream.EOF && !indents.isEmpty {
+    if try! _input.LA(1) == BufferedTokenStream.EOF && !indents.isEmpty {
       for i in stride(from: tokens.count - 1, to: 0, by: -1) {
-        if tokens[i].getType() == EOF {
+        if tokens[i].getType() == OrigamiParser.Tokens.EOF.rawValue {
           tokens.remove(at: i)
         }
       }
 
-      emit(commonToken(OrigamiParser.NEWLINE, "\n"))
+      emit(commonToken(OrigamiParser.Tokens.NEWLINE, "\n"))
 
       while !indents.isEmpty {
         emit(createDedent())
         indents.removeLast()
       }
 
-      emit(commonToken(OrigamiParser.EOF, "<EOF>"))
-
-      let next = super.nextToken()
-
-      if next.getChannel() == Token.DEFAULT_CHANNEL {
-        lastToken = next
-      }
-
-      return tokens.isEmpty ? next : tokens.removeFirst()
+      emit(commonToken(OrigamiParser.Tokens.EOF, "<EOF>"))
     }
+
+    let next = try! super.nextToken()
+
+    if next.getChannel() == OrigamiLexer.DEFAULT_TOKEN_CHANNEL {
+      lastToken = next
+    }
+
+    return tokens.isEmpty ? next : tokens.removeFirst()
   }
 
   private func createDedent() -> Token {
-    let dedent = commonToken(OrigamiParser.DEDENT, "")
-    dedent.setLine(lastToken.getLine())
+    let dedent = commonToken(OrigamiParser.Tokens.DEDENT, "")
+    dedent.setLine(lastToken!.getLine())
     return dedent
   }
 
-  private func commonToken(_ type: Int, _ text: String) -> CommonToken {
+  private func commonToken(_ type: OrigamiParser.Tokens, _ text: String) -> CommonToken {
     let stop = getCharIndex() - 1
     let start = text.isEmpty ? stop : stop - text.lengthOfBytes(using: .utf8) + 1
-    return CommonToken(_tokenFactorySourcePair, type, CommonToken.DEFAULT_CHANNEL, start, stop)
+    let pair = TokenSourceAndStream(self, _input!)
+    return CommonToken(pair, type.rawValue, CommonToken.DEFAULT_CHANNEL, start, stop)
   }
 
   class func getIndentationCount(_ spaces: String) -> Int {
@@ -63,14 +68,14 @@ tokens { INDENT, DEDENT }
         case "\t":
           count += 8 - (count % 8)
         default:
-          count ++
+          count += 1
       }
     }
 
     return count
   }
 
-  func asStartOfInput() -> Bool {
+  func atStartOfInput() -> Bool {
     return getCharPositionInLine() == 0 && getLine() == 1
   }
 }
@@ -186,23 +191,23 @@ NEWLINE
     | ( '\r'? '\n' | '\r' | '\f' ) SPACES?
     )
     {
-      let newLine = getText().replacingOccurences(of: "[^\r\n\f]", with: "", options: [.regularExpression])
-      let spaces = getText().replacingOccurences(of: "[\r\n\f]", with: "", options: [.regularExpression])
-      let next = _input.LA(1)
+      let newLine = getText().replacingOccurrences(of: "[^\\r\\n\\f]", with: "", options: [.regularExpression])
+      let spaces = getText().replacingOccurrences(of: "[\\r\\n\\f]", with: "", options: [.regularExpression])
+      let next = try! String(UnicodeScalar(_input!.LA(1))!)
 
-      if opened > 0 || next == "\r" || next == "\n" || next == "\f" || next == ";" {
+      if opened > 0 || next == "\\r" || next == "\\n" || next == "\\f" || next == ";" {
         skip()
       } else {
-        emit(commonToken(NEWLINE, newLine))
-        let indent = getIndentationCount(spaces)
+        emit(commonToken(OrigamiParser.Tokens.NEWLINE, newLine))
+        let indent = OrigamiLexer.getIndentationCount(spaces)
         let previous = indents.isEmpty ? 0 : indents.first
         if indent == previous {
           skip()
-        } else if indent > previous {
+        } else if indent > previous! {
           indents.append(indent)
-          emit(commonToken(OrigamiParser.INDENT, spaces))
+          emit(commonToken(OrigamiParser.Tokens.INDENT, spaces))
         } else {
-          while !indents.isEmpty && indents.first > indent {
+          while !indents.isEmpty && indents.first! > indent {
             emit(createDedent())
             indents.removeLast()
           }

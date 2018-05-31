@@ -1,7 +1,7 @@
 // Generated from Origami.g4 by ANTLR 4.7.1
 import Antlr4
 
-open class OrigamiLexer: Lexer {
+ class OrigamiLexer: Lexer {
 
 	internal static var _decisionToDFA: [DFA] = {
           var decisionToDFA = [DFA]()
@@ -14,23 +14,19 @@ open class OrigamiLexer: Lexer {
 
 	internal static let _sharedContextCache = PredictionContextCache()
 
-	public
 	static let IDENTIFIER=1, NUMBER=2, AND=3, OR=4, WITHOUT=5, DIFFERENCE=6, 
             TO=7, PERPENDICULAR=8, VIA=9, COLON=10, LPAREN=11, RPAREN=12, 
             POINTSYMBOL=13, LINESYMBOL=14, REGIONSYMBOL=15, COMMENT=16, 
             WS=17, NEWLINE=18
 
-	public
 	static let channelNames: [String] = [
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	]
 
-	public
 	static let modeNames: [String] = [
 		"DEFAULT_MODE"
 	]
 
-	public
 	static let ruleNames: [String] = [
 		"IDENTIFIER", "NUMBER", "AND", "OR", "WITHOUT", "DIFFERENCE", "TO", "PERPENDICULAR", 
 		"VIA", "COLON", "LPAREN", "RPAREN", "POINTSYMBOL", "LINESYMBOL", "REGIONSYMBOL", 
@@ -46,7 +42,6 @@ open class OrigamiLexer: Lexer {
 		"PERPENDICULAR", "VIA", "COLON", "LPAREN", "RPAREN", "POINTSYMBOL", "LINESYMBOL", 
 		"REGIONSYMBOL", "COMMENT", "WS", "NEWLINE"
 	]
-	public
 	static let VOCABULARY = Vocabulary(_LITERAL_NAMES, _SYMBOLIC_NAMES)
 
 
@@ -65,42 +60,43 @@ open class OrigamiLexer: Lexer {
 	      throw ANTLRError.illegalState(msg: "nextToken requires a non-null input stream.")
 	    }
 
-	    if _input.LA(1) == BufferedTokenStream.EOF && !indents.isEmpty {
+	    if try! _input.LA(1) == BufferedTokenStream.EOF && !indents.isEmpty {
 	      for i in stride(from: tokens.count - 1, to: 0, by: -1) {
-	        if tokens[i].getType() == EOF {
+	        if tokens[i].getType() == OrigamiParser.Tokens.EOF.rawValue {
 	          tokens.remove(at: i)
 	        }
 	      }
 
-	      emit(commonToken(OrigamiParser.NEWLINE, "\n"))
+	      emit(commonToken(OrigamiParser.Tokens.NEWLINE, "\n"))
 
 	      while !indents.isEmpty {
 	        emit(createDedent())
 	        indents.removeLast()
 	      }
 
-	      emit(commonToken(OrigamiParser.EOF, "<EOF>"))
-
-	      let next = super.nextToken()
-
-	      if next.getChannel() == Token.DEFAULT_CHANNEL {
-	        lastToken = next
-	      }
-
-	      return tokens.isEmpty ? next : tokens.removeFirst()
+	      emit(commonToken(OrigamiParser.Tokens.EOF, "<EOF>"))
 	    }
+
+	    let next = try! super.nextToken()
+
+	    if next.getChannel() == OrigamiLexer.DEFAULT_TOKEN_CHANNEL {
+	      lastToken = next
+	    }
+
+	    return tokens.isEmpty ? next : tokens.removeFirst()
 	  }
 
 	  private func createDedent() -> Token {
-	    let dedent = commonToken(OrigamiParser.DEDENT, "")
-	    dedent.setLine(lastToken.getLine())
+	    let dedent = commonToken(OrigamiParser.Tokens.DEDENT, "")
+	    dedent.setLine(lastToken!.getLine())
 	    return dedent
 	  }
 
-	  private func commonToken(_ type: Int, _ text: String) -> CommonToken {
+	  private func commonToken(_ type: OrigamiParser.Tokens, _ text: String) -> CommonToken {
 	    let stop = getCharIndex() - 1
 	    let start = text.isEmpty ? stop : stop - text.lengthOfBytes(using: .utf8) + 1
-	    return CommonToken(_tokenFactorySourcePair, type, CommonToken.DEFAULT_CHANNEL, start, stop)
+	    let pair = TokenSourceAndStream(self, _input!)
+	    return CommonToken(pair, type.rawValue, CommonToken.DEFAULT_CHANNEL, start, stop)
 	  }
 
 	  class func getIndentationCount(_ spaces: String) -> Int {
@@ -110,46 +106,45 @@ open class OrigamiLexer: Lexer {
 	        case "\t":
 	          count += 8 - (count % 8)
 	        default:
-	          count ++
+	          count += 1
 	      }
 	    }
 
 	    return count
 	  }
 
-	  func asStartOfInput() -> Bool {
+	  func atStartOfInput() -> Bool {
 	    return getCharPositionInLine() == 0 && getLine() == 1
 	  }
 
 
-	override open
+	override 
 	func getVocabulary() -> Vocabulary {
 		return OrigamiLexer.VOCABULARY
 	}
 
-	public
 	required init(_ input: CharStream) {
 	    RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION)
 		super.init(input)
 		_interp = LexerATNSimulator(self, OrigamiLexer._ATN, OrigamiLexer._decisionToDFA, OrigamiLexer._sharedContextCache)
 	}
 
-	override open
+	override 
 	func getGrammarFileName() -> String { return "Origami.g4" }
 
-	override open
+	override 
 	func getRuleNames() -> [String] { return OrigamiLexer.ruleNames }
 
-	override open
+	override 
 	func getSerializedATN() -> String { return OrigamiLexer._serializedATN }
 
-	override open
+	override 
 	func getChannelNames() -> [String] { return OrigamiLexer.channelNames }
 
-	override open
+	override 
 	func getModeNames() -> [String] { return OrigamiLexer.modeNames }
 
-	override open
+	override 
 	func getATN() -> ATN { return OrigamiLexer._ATN }
 
 	override open
@@ -165,23 +160,23 @@ open class OrigamiLexer: Lexer {
 		switch (actionIndex) {
 		case 0:
 
-			      let newLine = getText().replacingOccurences(of: "[^\r\n\f]", with: "", options: [.regularExpression])
-			      let spaces = getText().replacingOccurences(of: "[\r\n\f]", with: "", options: [.regularExpression])
-			      let next = _input.LA(1)
+			      let newLine = getText().replacingOccurrences(of: "[^\\r\\n\\f]", with: "", options: [.regularExpression])
+			      let spaces = getText().replacingOccurrences(of: "[\\r\\n\\f]", with: "", options: [.regularExpression])
+			      let next = try! String(UnicodeScalar(_input!.LA(1))!)
 
-			      if opened > 0 || next == "\r" || next == "\n" || next == "\f" || next == ";" {
+			      if opened > 0 || next == "\\r" || next == "\\n" || next == "\\f" || next == ";" {
 			        skip()
 			      } else {
-			        emit(commonToken(NEWLINE, newLine))
-			        let indent = getIndentationCount(spaces)
+			        emit(commonToken(OrigamiParser.Tokens.NEWLINE, newLine))
+			        let indent = OrigamiLexer.getIndentationCount(spaces)
 			        let previous = indents.isEmpty ? 0 : indents.first
 			        if indent == previous {
 			          skip()
-			        } else if indent > previous {
+			        } else if indent > previous! {
 			          indents.append(indent)
-			          emit(commonToken(OrigamiParser.INDENT, spaces))
+			          emit(commonToken(OrigamiParser.Tokens.INDENT, spaces))
 			        } else {
-			          while !indents.isEmpty && indents.first > indent {
+			          while !indents.isEmpty && indents.first! > indent {
 			            emit(createDedent())
 			            indents.removeLast()
 			          }
@@ -208,9 +203,7 @@ open class OrigamiLexer: Lexer {
 	}
 
 
-	public
 	static let _serializedATN: String = OrigamiLexerATN().jsonString
 
-	public
 	static let _ATN: ATN = ATNDeserializer().deserializeFromJson(_serializedATN)
 }

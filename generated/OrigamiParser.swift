@@ -1,7 +1,7 @@
 // Generated from Origami.g4 by ANTLR 4.7.1
 import Antlr4
 
-open class OrigamiParser: Parser {
+ class OrigamiParser: Parser {
 
 	internal static var _decisionToDFA: [DFA] = {
           var decisionToDFA = [DFA]()
@@ -14,7 +14,6 @@ open class OrigamiParser: Parser {
 
 	internal static let _sharedContextCache = PredictionContextCache()
 
-	public
 	enum Tokens: Int {
 		case EOF = -1, IDENTIFIER = 1, NUMBER = 2, AND = 3, OR = 4, WITHOUT = 5, 
                  DIFFERENCE = 6, TO = 7, PERPENDICULAR = 8, VIA = 9, COLON = 10, 
@@ -23,12 +22,10 @@ open class OrigamiParser: Parser {
                  INDENT = 19, DEDENT = 20
 	}
 
-	public
 	static let RULE_variable = 0, RULE_varprefix = 1, RULE_varname = 2, RULE_varassignment = 3, 
             RULE_expression = 4, RULE_argument = 5, RULE_constructor = 6, 
             RULE_constructorprefix = 7
 
-	public
 	static let ruleNames: [String] = [
 		"variable", "varprefix", "varname", "varassignment", "expression", "argument", 
 		"constructor", "constructorprefix"
@@ -43,53 +40,51 @@ open class OrigamiParser: Parser {
 		"PERPENDICULAR", "VIA", "COLON", "LPAREN", "RPAREN", "POINTSYMBOL", "LINESYMBOL", 
 		"REGIONSYMBOL", "COMMENT", "WS", "NEWLINE", "INDENT", "DEDENT"
 	]
-	public
 	static let VOCABULARY = Vocabulary(_LITERAL_NAMES, _SYMBOLIC_NAMES)
 
-	override open
+	override 
 	func getGrammarFileName() -> String { return "Origami.g4" }
 
-	override open
+	override 
 	func getRuleNames() -> [String] { return OrigamiParser.ruleNames }
 
-	override open
+	override 
 	func getSerializedATN() -> String { return OrigamiParser._serializedATN }
 
-	override open
+	override 
 	func getATN() -> ATN { return OrigamiParser._ATN }
 
-	override open
+	override 
 	func getVocabulary() -> Vocabulary {
 	    return OrigamiParser.VOCABULARY
 	}
 
-	override public
+	override 
 	init(_ input:TokenStream) throws {
 	    RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION)
 		try super.init(input)
 		_interp = ParserATNSimulator(self,OrigamiParser._ATN,OrigamiParser._decisionToDFA, OrigamiParser._sharedContextCache)
 	}
 
-	public class VariableContext: ParserRuleContext {
-			open
+	 class VariableContext: ParserRuleContext {
 			func varprefix() -> VarprefixContext? {
 				return getRuleContext(VarprefixContext.self, 0)
 			}
-			open
+
 			func varname() -> VarnameContext? {
 				return getRuleContext(VarnameContext.self, 0)
 			}
-		override open
+		override 
 		func getRuleIndex() -> Int {
 			return OrigamiParser.RULE_variable
 		}
-		override open
+		override 
 		func enterRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.enterVariable(self)
 			}
 		}
-		override open
+		override 
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.exitVariable(self)
@@ -97,7 +92,7 @@ open class OrigamiParser: Parser {
 		}
 	}
 	@discardableResult
-	 open func variable() throws -> VariableContext {
+	  func variable() throws -> VariableContext {
 		var _localctx: VariableContext = VariableContext(_ctx, getState())
 		try enterRule(_localctx, 0, OrigamiParser.RULE_variable)
 		defer {
@@ -120,30 +115,29 @@ open class OrigamiParser: Parser {
 		return _localctx
 	}
 
-	public class VarprefixContext: ParserRuleContext {
-			open
+	 class VarprefixContext: ParserRuleContext {
 			func POINTSYMBOL() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.POINTSYMBOL.rawValue, 0)
 			}
-			open
+
 			func LINESYMBOL() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.LINESYMBOL.rawValue, 0)
 			}
-			open
+
 			func REGIONSYMBOL() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.REGIONSYMBOL.rawValue, 0)
 			}
-		override open
+		override 
 		func getRuleIndex() -> Int {
 			return OrigamiParser.RULE_varprefix
 		}
-		override open
+		override 
 		func enterRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.enterVarprefix(self)
 			}
 		}
-		override open
+		override 
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.exitVarprefix(self)
@@ -151,7 +145,7 @@ open class OrigamiParser: Parser {
 		}
 	}
 	@discardableResult
-	 open func varprefix() throws -> VarprefixContext {
+	  func varprefix() throws -> VarprefixContext {
 		var _localctx: VarprefixContext = VarprefixContext(_ctx, getState())
 		try enterRule(_localctx, 2, OrigamiParser.RULE_varprefix)
 		var _la: Int = 0
@@ -187,22 +181,21 @@ open class OrigamiParser: Parser {
 		return _localctx
 	}
 
-	public class VarnameContext: ParserRuleContext {
-			open
+	 class VarnameContext: ParserRuleContext {
 			func IDENTIFIER() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.IDENTIFIER.rawValue, 0)
 			}
-		override open
+		override 
 		func getRuleIndex() -> Int {
 			return OrigamiParser.RULE_varname
 		}
-		override open
+		override 
 		func enterRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.enterVarname(self)
 			}
 		}
-		override open
+		override 
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.exitVarname(self)
@@ -210,7 +203,7 @@ open class OrigamiParser: Parser {
 		}
 	}
 	@discardableResult
-	 open func varname() throws -> VarnameContext {
+	  func varname() throws -> VarnameContext {
 		var _localctx: VarnameContext = VarnameContext(_ctx, getState())
 		try enterRule(_localctx, 4, OrigamiParser.RULE_varname)
 		defer {
@@ -231,30 +224,29 @@ open class OrigamiParser: Parser {
 		return _localctx
 	}
 
-	public class VarassignmentContext: ParserRuleContext {
-			open
+	 class VarassignmentContext: ParserRuleContext {
 			func variable() -> VariableContext? {
 				return getRuleContext(VariableContext.self, 0)
 			}
-			open
+
 			func COLON() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.COLON.rawValue, 0)
 			}
-			open
+
 			func expression() -> ExpressionContext? {
 				return getRuleContext(ExpressionContext.self, 0)
 			}
-		override open
+		override 
 		func getRuleIndex() -> Int {
 			return OrigamiParser.RULE_varassignment
 		}
-		override open
+		override 
 		func enterRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.enterVarassignment(self)
 			}
 		}
-		override open
+		override 
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.exitVarassignment(self)
@@ -262,7 +254,7 @@ open class OrigamiParser: Parser {
 		}
 	}
 	@discardableResult
-	 open func varassignment() throws -> VarassignmentContext {
+	  func varassignment() throws -> VarassignmentContext {
 		var _localctx: VarassignmentContext = VarassignmentContext(_ctx, getState())
 		try enterRule(_localctx, 6, OrigamiParser.RULE_varassignment)
 		defer {
@@ -287,26 +279,25 @@ open class OrigamiParser: Parser {
 		return _localctx
 	}
 
-	public class ExpressionContext: ParserRuleContext {
-			open
+	 class ExpressionContext: ParserRuleContext {
 			func constructor() -> ConstructorContext? {
 				return getRuleContext(ConstructorContext.self, 0)
 			}
-			open
+
 			func variable() -> VariableContext? {
 				return getRuleContext(VariableContext.self, 0)
 			}
-		override open
+		override 
 		func getRuleIndex() -> Int {
 			return OrigamiParser.RULE_expression
 		}
-		override open
+		override 
 		func enterRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.enterExpression(self)
 			}
 		}
-		override open
+		override 
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.exitExpression(self)
@@ -314,7 +305,7 @@ open class OrigamiParser: Parser {
 		}
 	}
 	@discardableResult
-	 open func expression() throws -> ExpressionContext {
+	  func expression() throws -> ExpressionContext {
 		var _localctx: ExpressionContext = ExpressionContext(_ctx, getState())
 		try enterRule(_localctx, 8, OrigamiParser.RULE_expression)
 		defer {
@@ -348,26 +339,25 @@ open class OrigamiParser: Parser {
 		return _localctx
 	}
 
-	public class ArgumentContext: ParserRuleContext {
-			open
+	 class ArgumentContext: ParserRuleContext {
 			func expression() -> ExpressionContext? {
 				return getRuleContext(ExpressionContext.self, 0)
 			}
-			open
+
 			func NUMBER() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.NUMBER.rawValue, 0)
 			}
-		override open
+		override 
 		func getRuleIndex() -> Int {
 			return OrigamiParser.RULE_argument
 		}
-		override open
+		override 
 		func enterRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.enterArgument(self)
 			}
 		}
-		override open
+		override 
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.exitArgument(self)
@@ -375,7 +365,7 @@ open class OrigamiParser: Parser {
 		}
 	}
 	@discardableResult
-	 open func argument() throws -> ArgumentContext {
+	  func argument() throws -> ArgumentContext {
 		var _localctx: ArgumentContext = ArgumentContext(_ctx, getState())
 		try enterRule(_localctx, 10, OrigamiParser.RULE_argument)
 		defer {
@@ -413,46 +403,45 @@ open class OrigamiParser: Parser {
 		return _localctx
 	}
 
-	public class ConstructorContext: ParserRuleContext {
-			open
+	 class ConstructorContext: ParserRuleContext {
 			func constructorprefix() -> ConstructorprefixContext? {
 				return getRuleContext(ConstructorprefixContext.self, 0)
 			}
-			open
+
 			func LPAREN() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.LPAREN.rawValue, 0)
 			}
-			open
+
 			func RPAREN() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.RPAREN.rawValue, 0)
 			}
-			open
+
 			func argument() -> [ArgumentContext] {
 				return getRuleContexts(ArgumentContext.self)
 			}
-			open
+
 			func argument(_ i: Int) -> ArgumentContext? {
 				return getRuleContext(ArgumentContext.self, i)
 			}
-			open
+
 			func WS() -> [TerminalNode] {
 				return getTokens(OrigamiParser.Tokens.WS.rawValue)
 			}
-			open
+
 			func WS(_ i:Int) -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.WS.rawValue, i)
 			}
-		override open
+		override 
 		func getRuleIndex() -> Int {
 			return OrigamiParser.RULE_constructor
 		}
-		override open
+		override 
 		func enterRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.enterConstructor(self)
 			}
 		}
-		override open
+		override 
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.exitConstructor(self)
@@ -460,7 +449,7 @@ open class OrigamiParser: Parser {
 		}
 	}
 	@discardableResult
-	 open func constructor() throws -> ConstructorContext {
+	  func constructor() throws -> ConstructorContext {
 		var _localctx: ConstructorContext = ConstructorContext(_ctx, getState())
 		try enterRule(_localctx, 12, OrigamiParser.RULE_constructor)
 		var _la: Int = 0
@@ -521,30 +510,29 @@ open class OrigamiParser: Parser {
 		return _localctx
 	}
 
-	public class ConstructorprefixContext: ParserRuleContext {
-			open
+	 class ConstructorprefixContext: ParserRuleContext {
 			func LINESYMBOL() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.LINESYMBOL.rawValue, 0)
 			}
-			open
+
 			func POINTSYMBOL() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.POINTSYMBOL.rawValue, 0)
 			}
-			open
+
 			func REGIONSYMBOL() -> TerminalNode? {
 				return getToken(OrigamiParser.Tokens.REGIONSYMBOL.rawValue, 0)
 			}
-		override open
+		override 
 		func getRuleIndex() -> Int {
 			return OrigamiParser.RULE_constructorprefix
 		}
-		override open
+		override 
 		func enterRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.enterConstructorprefix(self)
 			}
 		}
-		override open
+		override 
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? OrigamiListener {
 				listener.exitConstructorprefix(self)
@@ -552,7 +540,7 @@ open class OrigamiParser: Parser {
 		}
 	}
 	@discardableResult
-	 open func constructorprefix() throws -> ConstructorprefixContext {
+	  func constructorprefix() throws -> ConstructorprefixContext {
 		var _localctx: ConstructorprefixContext = ConstructorprefixContext(_ctx, getState())
 		try enterRule(_localctx, 14, OrigamiParser.RULE_constructorprefix)
 		var _la: Int = 0
@@ -589,9 +577,7 @@ open class OrigamiParser: Parser {
 	}
 
 
-	public
 	static let _serializedATN = OrigamiParserATN().jsonString
 
-	public
 	static let _ATN = ATNDeserializer().deserializeFromJson(_serializedATN)
 }
