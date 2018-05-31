@@ -3,9 +3,8 @@ Origami is a programming language designed for the automatic generation of Origa
 
 See [Issue #1](https://github.com/padarom/origami/issues/1) for more information.
 
-### ANTLR
-The syntax and grammar of _Origami_ is defined in ANTLRv4. This allows me to focus on the implementation of _Origami_ rather than on writing a parser for it.
+### Library
+The ultimate goal of Origami is to be embedded in an iOS application for Origami instructions. As such, the default language parser is written in Swift and (more specifically) implemented as an iOS Static Library.
 
-#### Build instructions
-ANTLR can autogenerate the Lexer and Parser for us. To do so, run `antlr4 -Dlanguage=Swift Origami.g4` in your command line.
-
+#### Requirements
+This library relies on ANTLR 4.7.1 for generating the lexer and parser and therefore expects that `/usr/local/lib/antlr-4.7.1-complete.jar` exists.
