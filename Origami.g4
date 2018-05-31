@@ -203,7 +203,7 @@ NEWLINE
           emit(commonToken(OrigamiParser.INDENT, spaces))
         } else {
           while !indents.isEmpty && indents.first > indent {
-            this.emit(createDedent())
+            emit(createDedent())
             indents.removeLast()
           }
         }
