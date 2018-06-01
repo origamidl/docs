@@ -14,12 +14,32 @@
 		9DB7FD3820C1627D00E5602A /* Origami.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0968A01ED8CE5500CC19F2 /* Origami.framework */; };
 		9DB7FD4620C1634800E5602A /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB7FD4320C1634200E5602A /* Antlr4.framework */; };
 		9DB7FD4720C1634C00E5602A /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB7FD4320C1634200E5602A /* Antlr4.framework */; };
-		9DB7FD4820C164A400E5602A /* Origami.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 8C0968A01ED8CE5500CC19F2 /* Origami.framework */; };
-		9DB7FD4C20C1689C00E5602A /* Generated in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD4B20C1689C00E5602A /* Generated */; };
-		9DB7FD4D20C1689C00E5602A /* Generated in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD4B20C1689C00E5602A /* Generated */; };
 		9DB7FD5020C168BC00E5602A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD4F20C168BC00E5602A /* main.swift */; };
 		9DB7FD5220C168D100E5602A /* Origami.g4 in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5120C168D100E5602A /* Origami.g4 */; };
 		9DB7FD5320C168D100E5602A /* Origami.g4 in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5120C168D100E5602A /* Origami.g4 */; };
+		9DB7FD5520C16BAE00E5602A /* AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5420C16BAE00E5602A /* AST.swift */; };
+		9DB7FD5620C16BAE00E5602A /* AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5420C16BAE00E5602A /* AST.swift */; };
+		9DB7FD6420C16C8900E5602A /* OrigamiParserATN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5A20C16C8800E5602A /* OrigamiParserATN.swift */; };
+		9DB7FD6520C16C8900E5602A /* OrigamiParserATN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5A20C16C8800E5602A /* OrigamiParserATN.swift */; };
+		9DB7FD6620C16C8900E5602A /* Origami.tokens in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5B20C16C8800E5602A /* Origami.tokens */; };
+		9DB7FD6720C16C8900E5602A /* Origami.tokens in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5B20C16C8800E5602A /* Origami.tokens */; };
+		9DB7FD6820C16C8900E5602A /* OrigamiLexer.tokens in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5C20C16C8800E5602A /* OrigamiLexer.tokens */; };
+		9DB7FD6920C16C8900E5602A /* OrigamiLexer.tokens in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5C20C16C8800E5602A /* OrigamiLexer.tokens */; };
+		9DB7FD6A20C16C8900E5602A /* OrigamiListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5D20C16C8800E5602A /* OrigamiListener.swift */; };
+		9DB7FD6B20C16C8900E5602A /* OrigamiListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5D20C16C8800E5602A /* OrigamiListener.swift */; };
+		9DB7FD6C20C16C8900E5602A /* OrigamiParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5E20C16C8800E5602A /* OrigamiParser.swift */; };
+		9DB7FD6D20C16C8900E5602A /* OrigamiParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5E20C16C8800E5602A /* OrigamiParser.swift */; };
+		9DB7FD6E20C16C8900E5602A /* OrigamiLexerATN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5F20C16C8900E5602A /* OrigamiLexerATN.swift */; };
+		9DB7FD6F20C16C8900E5602A /* OrigamiLexerATN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD5F20C16C8900E5602A /* OrigamiLexerATN.swift */; };
+		9DB7FD7020C16C8900E5602A /* OrigamiLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD6020C16C8900E5602A /* OrigamiLexer.swift */; };
+		9DB7FD7120C16C8900E5602A /* OrigamiLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD6020C16C8900E5602A /* OrigamiLexer.swift */; };
+		9DB7FD7220C16C8900E5602A /* OrigamiBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD6120C16C8900E5602A /* OrigamiBaseListener.swift */; };
+		9DB7FD7320C16C8900E5602A /* OrigamiBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7FD6120C16C8900E5602A /* OrigamiBaseListener.swift */; };
+		9DB7FD7420C16C8900E5602A /* OrigamiLexer.interp in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD6220C16C8900E5602A /* OrigamiLexer.interp */; };
+		9DB7FD7520C16C8900E5602A /* OrigamiLexer.interp in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD6220C16C8900E5602A /* OrigamiLexer.interp */; };
+		9DB7FD7620C16C8900E5602A /* Origami.interp in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD6320C16C8900E5602A /* Origami.interp */; };
+		9DB7FD7720C16C8900E5602A /* Origami.interp in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7FD6320C16C8900E5602A /* Origami.interp */; };
+		9DB7FD7A20C16F5D00E5602A /* example.origami in Copy Files */ = {isa = PBXBuildFile; fileRef = 9DB7FD7920C16E1400E5602A /* example.origami */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,14 +62,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		9DB7FD2E20C1627300E5602A /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = usr/share/man/man1;
+			buildActionMask = 12;
+			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				9DB7FD4820C164A400E5602A /* Origami.framework in Copy Files */,
+				9DB7FD7A20C16F5D00E5602A /* example.origami in Copy Files */,
 			);
 			name = "Copy Files";
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -64,10 +84,21 @@
 		8C800AF41F3B56FF00880A95 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		9DB7FD3020C1627300E5602A /* CLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CLI; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB7FD3B20C1634200E5602A /* Antlr4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Antlr4.xcodeproj; path = Antlr4/Antlr4.xcodeproj; sourceTree = "<group>"; };
-		9DB7FD4B20C1689C00E5602A /* Generated */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Generated; path = Sources/Generated; sourceTree = SOURCE_ROOT; };
 		9DB7FD4E20C168BC00E5602A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/CLI/Info.plist; sourceTree = SOURCE_ROOT; };
 		9DB7FD4F20C168BC00E5602A /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Sources/CLI/main.swift; sourceTree = SOURCE_ROOT; };
 		9DB7FD5120C168D100E5602A /* Origami.g4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Origami.g4; sourceTree = SOURCE_ROOT; };
+		9DB7FD5420C16BAE00E5602A /* AST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AST.swift; sourceTree = "<group>"; };
+		9DB7FD5A20C16C8800E5602A /* OrigamiParserATN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrigamiParserATN.swift; sourceTree = "<group>"; };
+		9DB7FD5B20C16C8800E5602A /* Origami.tokens */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Origami.tokens; sourceTree = "<group>"; };
+		9DB7FD5C20C16C8800E5602A /* OrigamiLexer.tokens */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OrigamiLexer.tokens; sourceTree = "<group>"; };
+		9DB7FD5D20C16C8800E5602A /* OrigamiListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrigamiListener.swift; sourceTree = "<group>"; };
+		9DB7FD5E20C16C8800E5602A /* OrigamiParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrigamiParser.swift; sourceTree = "<group>"; };
+		9DB7FD5F20C16C8900E5602A /* OrigamiLexerATN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrigamiLexerATN.swift; sourceTree = "<group>"; };
+		9DB7FD6020C16C8900E5602A /* OrigamiLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrigamiLexer.swift; sourceTree = "<group>"; };
+		9DB7FD6120C16C8900E5602A /* OrigamiBaseListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrigamiBaseListener.swift; sourceTree = "<group>"; };
+		9DB7FD6220C16C8900E5602A /* OrigamiLexer.interp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OrigamiLexer.interp; sourceTree = "<group>"; };
+		9DB7FD6320C16C8900E5602A /* Origami.interp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Origami.interp; sourceTree = "<group>"; };
+		9DB7FD7920C16E1400E5602A /* example.origami */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = example.origami; path = Sources/CLI/example.origami; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +154,9 @@
 		8C0968A81ED8D24F00CC19F2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9DB7FD4B20C1689C00E5602A /* Generated */,
+				9DB7FD5920C16C8800E5602A /* Generated */,
 				8C4520A71F08E159002F0E38 /* Origami.swift */,
+				9DB7FD5420C16BAE00E5602A /* AST.swift */,
 				8C5A76751ED95A50004F87A2 /* Origami.h */,
 				8C0968A91ED8D80300CC19F2 /* Info-iOS.plist */,
 				8C0968AA1ED8D80300CC19F2 /* Info-macOS.plist */,
@@ -140,6 +172,7 @@
 			children = (
 				9DB7FD4E20C168BC00E5602A /* Info.plist */,
 				9DB7FD4F20C168BC00E5602A /* main.swift */,
+				9DB7FD7920C16E1400E5602A /* example.origami */,
 			);
 			path = CLI;
 			sourceTree = "<group>";
@@ -159,6 +192,24 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		9DB7FD5920C16C8800E5602A /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				9DB7FD5A20C16C8800E5602A /* OrigamiParserATN.swift */,
+				9DB7FD5B20C16C8800E5602A /* Origami.tokens */,
+				9DB7FD5C20C16C8800E5602A /* OrigamiLexer.tokens */,
+				9DB7FD5D20C16C8800E5602A /* OrigamiListener.swift */,
+				9DB7FD5E20C16C8800E5602A /* OrigamiParser.swift */,
+				9DB7FD5F20C16C8900E5602A /* OrigamiLexerATN.swift */,
+				9DB7FD6020C16C8900E5602A /* OrigamiLexer.swift */,
+				9DB7FD6120C16C8900E5602A /* OrigamiBaseListener.swift */,
+				9DB7FD6220C16C8900E5602A /* OrigamiLexer.interp */,
+				9DB7FD6320C16C8900E5602A /* Origami.interp */,
+			);
+			name = Generated;
+			path = Sources/Generated;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -310,8 +361,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DB7FD4C20C1689C00E5602A /* Generated in Resources */,
+				9DB7FD7420C16C8900E5602A /* OrigamiLexer.interp in Resources */,
+				9DB7FD7620C16C8900E5602A /* Origami.interp in Resources */,
+				9DB7FD6820C16C8900E5602A /* OrigamiLexer.tokens in Resources */,
 				9DB7FD5220C168D100E5602A /* Origami.g4 in Resources */,
+				9DB7FD6620C16C8900E5602A /* Origami.tokens in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,8 +373,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DB7FD4D20C1689C00E5602A /* Generated in Resources */,
+				9DB7FD7520C16C8900E5602A /* OrigamiLexer.interp in Resources */,
+				9DB7FD7720C16C8900E5602A /* Origami.interp in Resources */,
+				9DB7FD6920C16C8900E5602A /* OrigamiLexer.tokens in Resources */,
 				9DB7FD5320C168D100E5602A /* Origami.g4 in Resources */,
+				9DB7FD6720C16C8900E5602A /* Origami.tokens in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +419,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DB7FD7220C16C8900E5602A /* OrigamiBaseListener.swift in Sources */,
+				9DB7FD6420C16C8900E5602A /* OrigamiParserATN.swift in Sources */,
+				9DB7FD5520C16BAE00E5602A /* AST.swift in Sources */,
 				8C4520A81F08E159002F0E38 /* Origami.swift in Sources */,
+				9DB7FD6E20C16C8900E5602A /* OrigamiLexerATN.swift in Sources */,
+				9DB7FD7020C16C8900E5602A /* OrigamiLexer.swift in Sources */,
+				9DB7FD6A20C16C8900E5602A /* OrigamiListener.swift in Sources */,
+				9DB7FD6C20C16C8900E5602A /* OrigamiParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +434,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DB7FD7320C16C8900E5602A /* OrigamiBaseListener.swift in Sources */,
+				9DB7FD6520C16C8900E5602A /* OrigamiParserATN.swift in Sources */,
+				9DB7FD5620C16BAE00E5602A /* AST.swift in Sources */,
 				8C4520AB1F08E159002F0E38 /* Origami.swift in Sources */,
+				9DB7FD6F20C16C8900E5602A /* OrigamiLexerATN.swift in Sources */,
+				9DB7FD7120C16C8900E5602A /* OrigamiLexer.swift in Sources */,
+				9DB7FD6B20C16C8900E5602A /* OrigamiListener.swift in Sources */,
+				9DB7FD6D20C16C8900E5602A /* OrigamiParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 import Foundation
 import Origami
 
-let origami = Origami()
-
-print(origami)
+let path = Bundle.main.path(forResource: "example", ofType: "origami")
+let stream = InputStream(fileAtPath: path!)
+stream?.open()
+let origami = Origami(stream: stream!)
