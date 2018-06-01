@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:origami.xcodeproj">
+      location = "self:Origami.xcodeproj">
    </FileRef>
 </Workspace>
