@@ -1,0 +1,13 @@
+{
+  "name": "origami",
+  "private": true,
+  "author": "Christopher Mühl <christopher@padarom.io>",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev",
+    "docs:build": "vuepress build"
+  },
+  "dependencies": {
+    "vuepress": "^0.14.2"
+  }
+}
