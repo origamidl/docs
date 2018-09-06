@@ -9,6 +9,19 @@ module.exports = {
         lastUpdated: 'Last updated',
         sidebar: [
             ['/', 'Start'],
+            ['specification', 'Specification'],
+            {
+                title: 'Syntax',
+                collapsable: true,
+                children: [
+                ]
+            },
+            {
+                title: 'Pragmatics',
+                collapsable: true,
+                children: [
+                ]
+            }
         ]
     }
 }
