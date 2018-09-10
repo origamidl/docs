@@ -33,8 +33,4 @@ This project consists of multiple parts:
 - An _Origami_ runtime which generates instructions and preview images
 
 #### Licenses
-The _Origami Definition Language_ is licensed under MIT. The language parser and runtime (currently intended to be written in Swift) are licensed under Creative Commons BY-NC 3.0.
-
-#### Requirements (for the _Origami_ lexer)
-This library relies on ANTLR 4.7.1 for generating the lexer and parser and therefore expects that `/usr/local/lib/antlr-4.7.1-complete.jar` exists.
-
+The _Origami Definition Language_ is licensed under MIT. The lexers, parsers and runtimes within this repository are licensed under Creative Commons BY-NC 3.0.
