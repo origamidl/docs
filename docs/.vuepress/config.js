@@ -1,6 +1,9 @@
 module.exports = {
     title: 'Origami Definition Language',
     description: 'Documentation and Getting Started guide of the Origami Definition Language',
+    markdown: {
+        config: md => require('./highlight')(md)
+    },
     themeConfig: {
         repo: 'padarom/origami',
         docsDir: 'docs',
