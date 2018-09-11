@@ -5,8 +5,7 @@ module.exports = {
         config: md => require('./highlight')(md)
     },
     themeConfig: {
-        repo: 'padarom/origami',
-        docsDir: 'docs',
+        repo: 'origami-dsl/origami',
         editLinks: true,
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last updated',

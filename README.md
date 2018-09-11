@@ -26,11 +26,5 @@ step:
 ; ...
 ```
 
-## Parts
-This project consists of multiple parts:
-- The _Origami Definition Language_
-- An _Origami_ lexer and parser
-- An _Origami_ runtime which generates instructions and preview images
-
-#### Licenses
-The _Origami Definition Language_ is licensed under MIT. The lexers, parsers and runtimes within this repository are licensed under Creative Commons BY-NC 3.0.
+#### License
+The _Origami Definition Language_ and its specification are licensed under MIT. For the implementations within the other repositories of this organization please consult their respective manuals for license information.
