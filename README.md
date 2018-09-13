@@ -1,14 +1,12 @@
-# Origami Definition Language (_Origami_)
+# Origami Definition Language (_OrigamiDL_)
 Origami Definition Language is a design-specific language created to textually define Origami folding instructions and is designed to be easily parseable by both human and machine.
 
 **The language is still being specified. Please have a look at the issues (and especially [Issue #1](https://github.com/padarom/origami/issues/1)) if you want to know more or contribute.**
 
-To distinguish Origami (the art of paper folding) from _Origami_ (the Origami Definition Language), the latter will be written in cursive for the purposes of this and other documents relating to the language.
-
 ## Introduction
-All Origami operations (i.e. folds) can be described by the seven [Huzita-Hatori axioms](https://en.wikipedia.org/wiki/Huzita%E2%80%93Hatori_axioms). _Origami_ makes use of this by having seven language constructs to specify folds, one for each of the axioms.
+All Origami operations (i.e. folds) can be described by the seven [Huzita-Hatori axioms](https://en.wikipedia.org/wiki/Huzita%E2%80%93Hatori_axioms). OrigamiDL makes use of this by having seven language constructs to specify folds, one for each of the axioms.
 
-These are all instructions currently available in _Origami_:
+These are all instructions currently available in OrigamiDL:
 ```origami
 # paper: square
 ; Specifies the type of paper used
