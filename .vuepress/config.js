@@ -13,9 +13,10 @@ module.exports = {
             ['/', 'Start'],
             ['specification', 'Specification'],
             {
-                title: 'Syntax',
+                title: 'Guide',
                 collapsable: true,
                 children: [
+                    ['/examples', 'Examples']
                 ]
             },
             {
