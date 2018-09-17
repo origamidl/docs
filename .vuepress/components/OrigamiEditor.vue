@@ -1,24 +1,42 @@
 <template>
-    <div>
-        <codemirror
-            :value="editableCode"
-            :options="codemirrorOptions"
-        />
-        <origami-preview />
+    <div class="editor">
+        <ClientOnly placeholder="Codemirror loading ...">
+            <codemirror
+                
+                class="codemirror"
+                :value="editableCode"
+                :options="codemirrorOptions"
+            />
+        </ClientOnly>
+
+        <origami-preview class="preview" />
     </div>
 </template>
 
 <script>
-import { codemirror } from 'vue-codemirror'
 import 'codemirror/lib/codemirror.css'
 
 // For custom language support see
 // https://codemirror.net/doc/manual.html#modeapi
 
-export default {
+let mounted = false
 
-    components: { codemirror },
+export default {
     
+    components: {
+        codemirror: () => {
+            return new Promise((resolve, reject) => {
+                let interval = setInterval(async () => {
+                    if (!mounted) return
+
+                    clearInterval(interval)
+                    let { codemirror } = await import('vue-codemirror')
+                    resolve(codemirror)
+                }, 20)
+            })
+        }
+    },
+
     props: ['code'],
 
     data () {
@@ -32,11 +50,20 @@ export default {
                 line: true
             }
         }
+    },
+
+    mounted () {
+        mounted = true
     }
 
 }
 </script>
 
 <style lang="stylus">
+.editor
+  display: flex
 
+.codemirror, .preview
+  flex: 1
+  max-width: 50%
 </style>

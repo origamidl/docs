@@ -4,6 +4,9 @@ module.exports = {
     markdown: {
         config: md => require('./highlight')(md)
     },
+    plugins: [
+        '@vuepress/plugin-register-components'
+    ],
     themeConfig: {
         repo: 'origami-dsl/origami',
         editLinks: true,

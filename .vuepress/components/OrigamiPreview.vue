@@ -1,16 +1,14 @@
 <template>
-    <div ref="renderer">
-    </div>
+    <div ref="renderer"></div>
 </template>
 
 <script>
-import start from '@origamidl/webgl/src/index'
-
 export default {
 
-    mounted () {
+    async mounted () {
+        const start = await import('@origamidl/webgl')
         let renderer = start(this.$refs.renderer)
-        renderer.setSize(740, 416)
+        renderer.setSize(420, 300)
     }
 
 }
