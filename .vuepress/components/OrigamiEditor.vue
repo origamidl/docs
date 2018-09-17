@@ -26,7 +26,9 @@ export default {
     components: {
         codemirror: () => {
             return new Promise((resolve, reject) => {
+                let retries = 0
                 let interval = setInterval(async () => {
+                    if (++retries > 20) clearInterval(interval)
                     if (!mounted) return
 
                     clearInterval(interval)
