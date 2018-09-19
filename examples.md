@@ -9,4 +9,4 @@ example.a: |
 
 # Examples
 
-<OrigamiEditor :code="$page.frontmatter['example.a']" />
+<LivePreview :code="$page.frontmatter['example.a']" />

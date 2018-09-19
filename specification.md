@@ -4,7 +4,7 @@ This document specifies the syntax and semantics of the Origami Definition Langu
 [[toc]]
 
 ## 1. Overview
-OrigamiDL is a statically-typed, pure and declarative domain-specific language.
+OrigamiDL is a declarative and statically-typed domain-specific language without side-effects.
 
 ## 2. Notation
 

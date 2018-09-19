@@ -2,7 +2,6 @@
     <div class="editor">
         <ClientOnly placeholder="Codemirror loading ...">
             <codemirror
-                
                 class="codemirror"
                 :value="editableCode"
                 :options="codemirrorOptions"
