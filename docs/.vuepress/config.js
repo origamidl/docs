@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Origami Definition Language',
-    description: 'Documentation and Getting Started guide of the Origami Definition Language',
+    description: 'Documentation and Specification of the Origami Definition Language',
     markdown: {
         config: md => require('./highlight')(md)
     },
@@ -8,7 +8,8 @@ module.exports = {
         '@vuepress/plugin-register-components'
     ],
     themeConfig: {
-        repo: 'origami-dsl/origami',
+        repo: 'origamidl/origami',
+        docsDir: 'docs',
         editLinks: true,
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last updated',
@@ -26,6 +27,7 @@ module.exports = {
                 title: 'Pragmatics',
                 collapsable: true,
                 children: [
+
                 ]
             }
         ]
