@@ -15,19 +15,19 @@ module.exports = {
         lastUpdated: 'Last updated',
         sidebar: [
             ['/', 'Start'],
-            ['specification', 'Specification'],
             {
                 title: 'Guide',
-                collapsable: true,
+                collapsable: false,
                 children: [
-                    ['/examples', 'Examples']
+                    ['examples', 'Examples']
                 ]
             },
             {
-                title: 'Pragmatics',
-                collapsable: true,
+                title: 'Specification',
+                collapsable: false,
                 children: [
-
+                    ['/specification/semantics', 'Semantics'],
+                    '/specification/pragmatics'
                 ]
             }
         ]
