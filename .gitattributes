@@ -1,2 +1,1 @@
-Sources/Generated/* linguist-generated=true
-Antlr4/* linguist-vendored=true
+docs/* linguist-documentation=false
